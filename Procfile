@@ -1,0 +1,1 @@
+web: waitress-serve --port=$PORT RGB_DOT.wsgi:application
