@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block container %}
+
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Tractor Detail</h5>
+        </div>
+        <div class="modal-body">
+          <p> Name : {{tractor.name}}</p>
+         <p>Price : {{tractor.price}}</p>
+         <p>Owner : {{tractor.owner}}</p>
+        </div>
+        <div class="modal-footer">
+          
+          <a  href={% url 'tractor_list' %} type="button" class="btn btn-secondary" data-dismiss="modal">Close</a>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock container %}

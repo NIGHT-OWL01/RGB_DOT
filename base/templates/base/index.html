@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block container %}
+<h2>{{user.username}}</h2> <br>
+
+{% if user.is_authenticated %}
+<a type="button" class="btn btn-primary btn-lg" href={% url 'add_tractor' %}>Add Tractor</a>
+<a type="button" class="btn btn-secondary btn-lg" href={% url 'tractor_list' %}>List Tractor</a>
+<a type="button" class="btn btn-secondary btn-lg" href={% url 'logout' %}>Logout</a>
+{% else %}
+<a type="button" class="btn btn-primary btn-lg" href={% url 'register' %}>Register</a>
+<a type="button" class="btn btn-secondary btn-lg" href={% url 'login' %}>Login</a>
+{% endif %}
+
+
+
+
+{% endblock %}

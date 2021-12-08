@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block container %}
+  
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tractor</th>
+        <th scope="col">Implements</th>
+        <th scope="col">price</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for tractor in tractor_list %}
+      <tr>
+        <th scope="row">{{tractor.id}}</th>
+        <td><a href={% url 'tractor_detail' tractor.id %}>{{tractor.name}}</a></td>
+        <td>{{tractor.implement}}</a></td>
+        <td>{{tractor.price}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock container %}
