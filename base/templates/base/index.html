@@ -1,17 +1,38 @@
 {% extends 'base.html' %}
 {% block container %}
-<h2>{{user.username}}</h2> <br>
+
+<h3>Welcome {{user.username}}</h3> <br>
 
 {% if user.is_authenticated %}
 <a type="button" class="btn btn-primary btn-lg" href={% url 'add_tractor' %}>Add Tractor</a>
-<a type="button" class="btn btn-secondary btn-lg" href={% url 'tractor_list' %}>List Tractor</a>
-<a type="button" class="btn btn-secondary btn-lg" href={% url 'logout' %}>Logout</a>
+<a type="button" class="btn btn-secondary btn-lg" href={% url 'tractor_list' %}>All Tractor List</a>
+<a type="button" class="btn btn-secondary btn-lg" href={% url 'logout' %}>Logout</a><br>
+<h2>Tractors You own</h2>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tractor</th>
+        <th scope="col">Implements</th>
+        <th scope="col">price</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for tractor in tractors %}
+    {% if tractor.owner == user %}
+      <tr>
+        <th scope="row">{{tractor.id}}</th>
+        <td><a href={% url 'tractor_detail' tractor.id %}>{{tractor.name}}</a></td>
+        <td>{{tractor.implement}}</a></td>
+        <td>{{tractor.price}}</td>
+      </tr>
+    {% endif %}
+    {% endfor %}
+    </tbody>
+  </table>
 {% else %}
 <a type="button" class="btn btn-primary btn-lg" href={% url 'register' %}>Register</a>
 <a type="button" class="btn btn-secondary btn-lg" href={% url 'login' %}>Login</a>
 {% endif %}
-
-
-
 
 {% endblock %}

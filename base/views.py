@@ -21,7 +21,7 @@ def register(request):
             #improve 
             username=form.cleaned_data.get('username')
             raw_password=form.cleaned_data.get('password1')  
-            return redirect('login')
+            return redirect('/')
     form=UserCreationForm()
     return render(request, 'base/register.html',{'form':form})
 
