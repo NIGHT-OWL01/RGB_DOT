@@ -1,1 +1,1 @@
-web: gunicorn RGB_DOT.wsgi
+web: waitress-serve --port:$PORT RGB_DOT.wsgi:application
