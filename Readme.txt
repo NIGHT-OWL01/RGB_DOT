@@ -19,5 +19,3 @@ i overrided form_valid() method to assign current user to tractor.
 
 3. Tractor details are available on 'All Tractor List' link click on tractor name to get name of owner
 /*generic DetailView is used for details of tractor */
-
-Sorry for delay
